@@ -1,122 +1,84 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import "./App.css";
+import raywizLogo from "./assets/raywiz.png";
+import bekkestuaKostholdOgLivsstil from "./assets/bekkestua-koli.png";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
+  return(
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+    <header>
+      <nav>
+        <h1>Magnus Evenstad</h1> 
+
+        <input type="checkbox" id="burger-toggle" /> {/*checkbox for hamburger meny */}
+        <label className="burger-menu" htmlFor="burger-toggle">
+          <div className="menu-icon"></div>
+        </label>
+
+        <ul className="menu-items">
+          <li><a href="#prosjekter">Prosjekter</a></li>
+          <li><a href="#Utdanning">Utdanning</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main>
+      <section id="whoami">
+        <h1>Magnus Evenstad</h1>
+        <p id="personlig-tittel">IT Student og Junior Utvikler</p>
+
+      <a className="button" href="https://www.linkedin.com/in/magnus-evenstad-322469290/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a className="button" href="https://github.com/Magnixz" target="_blank" rel="noopener noreferrer">GitHub</a>
       </section>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
+      <section id="om-meg">
+        <h2>Hvem er jeg?</h2>
+        <p>Jeg er en 23 år gammel junior utvikler og IT student med fokus på Universell Utforming</p>
       </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      <section id="utdanning">
+        <h2>Utdanning</h2>
+        <div className="utdanning-boks">
+          <h3>Master - Universell Utforming av IKT</h3>
+          <p>OsloMet</p>
+          <p>2026 - Nåværende (forventet avsluttet 2028)</p>
+        </div>
+
+        <div className="utdanning-boks">
+          <h3>Bachelor - Informasjonsteknologi</h3>
+          <p>OsloMet</p>
+          <p>2023 - 2026</p>
+        </div>
+        <a href="#utdanning">Les mer om utdanningen her</a>
+      </section>
+
+
+      <section id="prosjekter">
+        <h2>Prosjekter</h2>
+        <div className="prosjekt-boks">
+          <h3>Elgviz - Bachelorprosjekt</h3>
+          <img src={raywizLogo} alt="" className="prosjekt-bilde" />
+          <p>Dette var mitt bachelorprosjekt som ble gjort i sammarbeid med Raywiz. I dette prosjektet trente jeg opp en YOLOv26-modell for å detektere elg i veibane ved hjelp av en LiDAR-sensor.</p>
+          <a className="button" href="https://github.com/Magnixz/Moosedar/tree/main" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+
+
+        <div className="prosjekt-boks">
+          <h3>Nettside</h3>
+          <img src={bekkestuaKostholdOgLivsstil} alt="" className="prosjekt-bilde" />
+          <p>Dette er en nettside jeg har laget for Bekkestua Kosthold og Livsstil</p>
+          </div>
+
+        
+        <div className="prosjekt-boks">
+          <h3>Portefølje</h3>
+          <p>Dette er min portefølje som jeg har laget for å vise frem mine prosjekter, utdanning og ferdigheter</p>
+        </div>
+
+        <a href="#prosjekter">Les mer om prosjektene her</a>
+      </section>
+    </main>
     </>
   )
 }
 
-export default App
+export default App;
