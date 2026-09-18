@@ -1,20 +1,33 @@
 import "./App.css";
+import { useState } from "react";
 import raywizLogo from "./assets/raywiz.png";
 import bekkestuaKostholdOgLivsstil from "./assets/bekkestua-koli.png";
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return(
     <>
     <header>
       <nav>
-        <h1>Magnus Evenstad</h1> 
+        <a href="/" className="magev">Magnus Evenstad</a> 
 
-        <input type="checkbox" id="burger-toggle" /> {/*checkbox for hamburger meny */}
-        <label className="burger-menu" htmlFor="burger-toggle">
-          <div className="menu-icon"></div>
-        </label>
 
-        <ul className="menu-items">
+        <button 
+        className="burger-menu" 
+        type="button" 
+        aria-expanded={menuOpen} 
+        aria-controls="main-menu"
+        aria-label={menuOpen ? "Lukk meny" : "Åpne meny"} 
+        onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span className="menu-icon"
+          aria-hidden="true"
+          ></span>
+        </button>
+
+        <ul id="main-menu"
+        className={`menu-items ${menuOpen ? "menu-open" : ""}`}>
           <li><a href="#prosjekter">Prosjekter</a></li>
           <li><a href="#Utdanning">Utdanning</a></li>
         </ul>
@@ -76,6 +89,10 @@ function App() {
 
         <a href="#prosjekter">Les mer om prosjektene her</a>
       </section>
+
+      <footer>
+
+      </footer>
     </main>
     </>
   )
