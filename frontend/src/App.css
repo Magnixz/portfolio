@@ -1,9 +1,13 @@
 :root{
   --navbar: #325175;
+  --whoami-bg: #d1d9dd;
 }
+
+
 
 body{
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
 }
 
 nav{
@@ -60,6 +64,83 @@ footer{
   font-weight: bold;
 }
 
+#whoami{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  width: auto;
+  background-color: var(--whoami-bg);
+  border-bottom: 2px solid black;
+  padding: 50px;
+}
+
+.whoami-content{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding-top: 100px;
+}
+
+#whoami h1{
+  margin: 0;
+  font-size: 2rem;
+}
+
+#personlig-tittel{
+  font-size: 1.2rem;
+  margin: 0;
+  font-style: italic;
+}
+
+#whoami-buttons{
+  display: flex;
+}
+
+.button{
+  background-color: var(--navbar);
+  color: white;
+  border: 5px solid var(--whoami-bg);
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+#bilde-i-whoami{
+  border-radius: 50%;
+  width: 400px;
+}
+
+
+#utdanning{
+  display: grid;
+  padding-left: 30px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid black;
+}
+
+#utdanning h2{
+  font-size: 2rem;
+}
+
+.utdanning-boks1{
+  width: 400px;
+  background-color: #d1d9dd;
+  box-shadow: 4px 2px 2px #546167;
+  padding: 40px;
+  border-radius: 25px;
+  grid-row: 2;
+}
+
+.utdanning-boks2{
+  width: 400px;
+  background-color: #d1d9dd;
+  box-shadow: 4px 2px 2px #546167;
+  padding: 40px;
+  border-radius: 25px;
+  grid-row: 4;
+}
 
 
 

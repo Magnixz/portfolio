@@ -2,6 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import raywizLogo from "./assets/raywiz.png";
 import bekkestuaKostholdOgLivsstil from "./assets/bekkestua-koli.png";
+import whoamiBilde from "./assets/whoami.jpeg"
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,33 +37,36 @@ function App() {
     
     <main>
       <section id="whoami">
+        <div className="whoami-content">
         <h1>Magnus Evenstad</h1>
         <p id="personlig-tittel">IT Student og Junior Utvikler</p>
-
+        <p>Jeg er en 23 år gammel junior-utvikler og IT-student med fokus på Universell Utforming</p>
+        <div id="whoami-buttons">
       <a className="button" href="https://www.linkedin.com/in/magnus-evenstad-322469290/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a className="button" href="https://github.com/Magnixz" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </section>
-
-      <section id="om-meg">
-        <h2>Hvem er jeg?</h2>
-        <p>Jeg er en 23 år gammel junior utvikler og IT student med fokus på Universell Utforming</p>
+      </div>
+      </div>
+      <img src={whoamiBilde} alt="" id="bilde-i-whoami"/>
       </section>
 
       <section id="utdanning">
         <h2>Utdanning</h2>
-        <div className="utdanning-boks">
+        
+        <div className="utdanning-boks1">
           <h3>Master - Universell Utforming av IKT</h3>
           <p>OsloMet</p>
           <p>2026 - Nåværende (forventet avsluttet 2028)</p>
         </div>
 
-        <div className="utdanning-boks">
+  
+        <div className="utdanning-boks2">
           <h3>Bachelor - Informasjonsteknologi</h3>
           <p>OsloMet</p>
           <p>2023 - 2026</p>
         </div>
         <a href="#utdanning">Les mer om utdanningen her</a>
       </section>
+
 
 
       <section id="prosjekter">
