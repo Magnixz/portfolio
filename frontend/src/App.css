@@ -135,13 +135,255 @@ footer{
 
 .utdanning-boks2{
   width: 400px;
-  background-color: #d1d9dd;
+  background-color: var(--whoami-bg);
   box-shadow: 4px 2px 2px #546167;
   padding: 40px;
   border-radius: 25px;
   grid-row: 4;
 }
 
+
+#prosjekter {
+  padding: 30px;
+  border-bottom: 2px solid black;
+}
+
+.prosjekter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto 30px;
+}
+
+#prosjekter h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+
+/* ---------------- */
+/* ON/OFF SWITCH    */
+/* ---------------- */
+
+.carousel-toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toggle-switch {
+  position: relative;
+
+  width: 56px;
+  height: 30px;
+
+  padding: 0;
+
+  border: 2px solid #546167;
+  border-radius: 30px;
+
+  background-color: #777;
+
+  cursor: pointer;
+
+  transition: background-color 0.25s ease;
+}
+
+.toggle-switch.active {
+  background-color: var(--navbar);
+}
+
+.toggle-circle {
+  position: absolute;
+
+  width: 22px;
+  height: 22px;
+
+  top: 2px;
+  left: 3px;
+
+  background-color: white;
+
+  border-radius: 50%;
+
+  transition: transform 0.25s ease;
+}
+
+.toggle-switch.active .toggle-circle {
+  transform: translateX(25px);
+}
+
+.toggle-switch:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 3px;
+}
+
+
+/* ---------------- */
+/* CAROUSEL         */
+/* ---------------- */
+
+.carousel-container {
+  display: grid;
+
+  grid-template-columns: auto minmax(0, 850px) auto;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+
+  width: 100%;
+}
+
+.carousel-window {
+  overflow: hidden;
+
+  width: 100%;
+
+  padding: 10px 0;
+}
+
+.carousel-track {
+  display: flex;
+
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+
+  display: flex;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  padding: 10px;
+}
+
+
+/* ---------------- */
+/* PROJECT CARD     */
+/* ---------------- */
+
+.prosjekt-boks {
+  box-sizing: border-box;
+
+  width: min(600px, 100%);
+
+  background-color: var(--whoami-bg);
+
+  box-shadow: 4px 2px 2px #546167;
+
+  padding: 40px;
+
+  border-radius: 25px;
+}
+
+.prosjekt-boks h3 {
+  font-size: 1.8rem;
+  margin-top: 0;
+}
+
+.prosjekt-bilde {
+  display: block;
+
+  max-width: 300px;
+  width: 100%;
+
+  max-height: 180px;
+
+  object-fit: contain;
+
+  margin: 25px auto;
+}
+
+
+/* ---------------- */
+/* ARROWS           */
+/* ---------------- */
+
+.carousel-arrow {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 55px;
+  height: 55px;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: var(--navbar);
+  color: white;
+
+  font-size: 2.5rem;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.carousel-arrow:hover {
+  transform: scale(1.08);
+}
+
+.carousel-arrow:focus-visible {
+  outline: 3px solid black;
+  outline-offset: 4px;
+}
+
+.carousel-arrow:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+
+/* ---------------- */
+/* DOTS             */
+/* ---------------- */
+
+.carousel-indicators {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-top: 15px;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+
+  padding: 0;
+
+  border: 2px solid var(--navbar);
+  border-radius: 50%;
+
+  background-color: transparent;
+
+  cursor: pointer;
+}
+
+.carousel-dot.active {
+  background-color: var(--navbar);
+}
+
+.carousel-dot:focus-visible {
+  outline: 3px solid black;
+  outline-offset: 3px;
+}
+
+.prosjekt-bilde{
+  width: 300px;
+}
 
 
 
