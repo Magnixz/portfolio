@@ -10,7 +10,7 @@ using System.Net;
 var bygger = WebApplication.CreateBuilder(args);
 
 // API og PostgreSQL
-bygger.Services.AddControllers();
+bygger.Services.AddControllersWithViews();
 
 bygger.Services.AddDbContext<AppDbContext>(valg =>
 {

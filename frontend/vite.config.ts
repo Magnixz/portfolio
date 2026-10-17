@@ -6,12 +6,12 @@ export default defineConfig({
   plugins: [react()],
 
   server: {
-    port: 5173,
+    port: 4440,
+    strictPort: true,
 
-    // Vite sender API-kall videre til .NET backend
     proxy: {
       "/api": {
-        target: "http://localhost:5000",
+        target: "http://localhost:4441",
         changeOrigin: true
       }
     }
