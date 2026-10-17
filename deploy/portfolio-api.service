@@ -1,0 +1,20 @@
+# EKSEMPEL – bruk korrekt deploy-katalog, rettigheter og hemmeligheter.
+[Unit]
+Description=Portfolio ASP.NET API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/opt/portfolio/backend
+ExecStart=/usr/bin/dotnet /opt/portfolio/backend/backend.dll
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=ASPNETCORE_URLS=http://127.0.0.1:5000
+EnvironmentFile=/etc/portfolio-api.env
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

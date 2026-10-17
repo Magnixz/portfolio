@@ -1,426 +1,738 @@
-:root{
-  --navbar: #325175;
-  --whoami-bg: #d1d9dd;
+
+/* Fargene jeg bruker på nettsiden */
+:root {
+  --navbar: #0a2239; --bla: #325175;
+  --morkebla: #203b58; --bakgrunn: #edf2f6;
+  --hvit_boks: #ffffff; --lys_boks: #dce5ec;
+  --boks_bg: #d1d9dd; --tekst: #142a3e;
+  --gra_tekst: #526579; --kant: #c6d2dc;
+  --skygge: 0 8px 26px rgb(10 34 57 / 9%); --boks_skygge: 4px 4px 12px #54616733;
+  --radius: 18px;
 }
 
-
-
-body{
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
+.hopp_til_innhold {
+  position: absolute; left: 1rem;
+  top: -100px; z-index: 1000;
+  padding: 0.8rem 1rem; background: white;
+  color: var(--navbar); border-radius: 8px;
 }
 
-nav{
-  background-color: var(--navbar);
-  display: grid;
-  color: white;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  padding: 1rem 2rem;
+.hopp_til_innhold:focus { top: 1rem; }
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.25;
 }
 
-.magev{
-  color: white;
-  font-size: 2rem;
-  font-weight: bold;
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
+h3 { font-size: 1.3rem; }
+p { line-height: 1.7; }
+
+.primary-button,
+.secondary-button,
+.danger-button {
+  display: inline-flex; justify-content: center;
+  align-items: center; gap: 0.5rem;
+  min-height: 44px; padding: 0.8rem 1.25rem;
+  border-radius: 10px; border: 2px solid transparent;
+  font-weight: 650; text-decoration: none;
+}
+
+.primary-button {
+  background: var(--bla); color: white;
+}
+
+.primary-button:hover { background: var(--morkebla); }
+
+.secondary-button {
+  background: white; color: var(--morkebla);
+  border-color: var(--bla);
+}
+
+.secondary-button:hover { background: var(--lys_boks); }
+
+.danger-button {
+  background: #a52323; color: white;
+}
+
+.content-card {
+  background: white; border: 1px solid var(--kant);
+  border-radius: var(--radius); box-shadow: var(--skygge);
+  padding: clamp(1.2rem, 3vw, 2rem);
+}
+
+.innhold_seksjon {
+  max-width: 1150px; margin: auto;
+  padding: 4rem 1.5rem; scroll-margin-top: 100px;
+}
+
+.forside > .innhold_seksjon { padding-block: 3.2rem; }
+.seksjon_overskrift { margin-bottom: 1.8rem; }
+.seksjon_overskrift h2 { margin: 0 0 0.6rem; }
+
+.seksjon_overskrift p {
+  margin: 0; color: var(--gra_tekst);
+}
+
+.se_mer {
+  display: inline-block; margin-top: 0.8rem;
+  font-weight: 700; text-underline-offset: 4px;
+}
+
+.tom_liste {
+  border: 1px dashed var(--kant); padding: 1.25rem;
+  border-radius: var(--radius); background: var(--hvit_boks);
+  color: var(--gra_tekst);
+}
+
+.status_melding {
+  text-align: center; padding: 4rem 1rem;
+}
+
+.error-message {
+  color: #9f2020; background: #fff0f0;
+  border: 1px solid #d99b9b; border-radius: 8px;
+  padding: 0.9rem;
+}
+
+.success-message {
+  color: #16552a; background: #ecf8ee;
+  border: 1px solid #87b496; border-radius: 8px;
+  padding: 0.9rem;
+}
+
+/* Navigasjon */
+
+.hovedmeny {
+  background: var(--navbar); color: white;
+  position: sticky; top: 0;
+  z-index: 100; box-shadow: 0 2px 12px rgb(0 0 0 / 15%);
+}
+
+.nav_innhold {
+  max-width: 1300px; margin: auto;
+  display: flex; justify-content: space-between;
+  align-items: center; gap: 2rem;
+  min-height: 76px; padding: 0.8rem 1.5rem;
+}
+
+.nav_navn {
+  color: white; text-decoration: none;
+  font-size: 1.25rem; font-weight: 750;
   white-space: nowrap;
 }
 
-.burger-menu{
-  display: none;
+.navigasjon {
+  display: flex; align-items: center;
+  gap: 1.3rem;
 }
 
-a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease;
+.navigasjon > a {
+  color: white; text-decoration: none;
+  padding: 0.5rem 0;
 }
 
-a:hover{
-  color:white;
+.navigasjon > a:hover,
+.navigasjon > a[aria-current="page"] {
+  text-decoration: underline; text-underline-offset: 5px;
 }
 
-
-footer{
-  text-align: center;
-  background-color: var(--navbar);
-  display: flex;
-  justify-content: space-around;
-  padding: 1rem;
+.sprak_valg {
+  display: flex; gap: 0.25rem;
+  padding: 0.2rem; background: #213e5c;
+  border-radius: 10px;
 }
 
-.menu-items{
-  grid-column: 2;
-  justify-self: end;
-  display: flex;
-  list-style: none;
-  gap: 2.5rem;
-  margin: 0;
-  padding: 0;
+.sprak_valg button {
+  border: 0; padding: 0.45rem 0.65rem;
+  color: white; background: transparent;
+  border-radius: 7px;
 }
 
-.menu-items li{
-  font-size: 1.1rem;
-  font-weight: bold;
+.sprak_valg button[aria-pressed="true"] {
+  background: white; color: var(--navbar);
+  font-weight: 750;
 }
 
-#whoami{
-  display: grid;
-  grid-template-columns: 1fr auto;
-  width: auto;
-  background-color: var(--whoami-bg);
-  border-bottom: 2px solid black;
-  padding: 50px;
+.mobil_meny {
+  display: none; background: transparent;
+  color: white; border: 1px solid #879daf;
+  border-radius: 8px; padding: 0.7rem;
 }
 
-.whoami-content{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-  padding-top: 100px;
+/* Om meg på forsiden */
+
+.hvem_er_jeg {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(230px, 400px);
+  align-items: center; gap: clamp(25px, 6vw, 90px);
+  padding: clamp(35px, 6vw, 80px) max(30px, calc((100% - 1150px) / 2)); background: var(--boks_bg);
 }
 
-#whoami h1{
-  margin: 0;
-  font-size: 2rem;
+.om_meg_tekst {
+  display: flex; flex-direction: column;
+  align-items: flex-start; gap: 20px;
 }
 
-#personlig-tittel{
-  font-size: 1.2rem;
-  margin: 0;
-  font-style: italic;
+.om_meg_tekst h1 {
+  margin: 0; font-size: clamp(2rem, 4vw, 2.8rem);
 }
 
-#whoami-buttons{
-  display: flex;
+.personlig_tittel {
+  margin: 0; font-size: 1.25rem;
+  font-style: italic; color: var(--bla);
 }
 
-.button{
-  background-color: var(--navbar);
-  color: white;
-  border: 5px solid var(--whoami-bg);
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 25px;
-  transition: background-color 0.3s ease;
+.om_meg_tekst > p:not(.personlig_tittel) {
+  margin: 0; max-width: 650px;
+  font-size: 1.08rem;
 }
 
-#bilde-i-whoami{
-  border-radius: 50%;
-  width: 400px;
+.om_meg_knapper {
+  display: flex; gap: 10px;
+  margin-top: 5px;
 }
 
-
-#utdanning{
-  display: grid;
-  padding-left: 30px;
-  padding-bottom: 30px;
-  border-bottom: 2px solid black;
+.profil_bilde {
+  display: block; width: 100%;
+  max-width: 400px; aspect-ratio: 1;
+  border-radius: 50%; overflow: hidden;
+  background: #b9cad9;
 }
 
-#utdanning h2{
-  font-size: 2rem;
+.profil_bilde img {
+  width: 100%; height: 100%;
+  object-fit: cover;
 }
 
-.utdanning-boks1{
-  width: 400px;
-  background-color: #d1d9dd;
-  box-shadow: 4px 2px 2px #546167;
-  padding: 40px;
-  border-radius: 25px;
-  grid-row: 2;
+/* Utdanningskortene */
+
+.utdanning_bokser {
+  display: grid; gap: 24px;
 }
 
-.utdanning-boks2{
-  width: 400px;
-  background-color: var(--whoami-bg);
-  box-shadow: 4px 2px 2px #546167;
-  padding: 40px;
-  border-radius: 25px;
-  grid-row: 4;
+.utdanning_forside { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.utdanning_side { grid-template-columns: 1fr; }
+
+.utdanning_boks {
+  min-width: 0; padding: 30px;
+  background: var(--boks_bg); border: 1px solid #b9c7cf;
+  border-radius: 25px; box-shadow: var(--boks_skygge);
 }
 
-
-#prosjekter {
-  padding: 30px;
-  border-bottom: 2px solid black;
+.utdanning_topp {
+  display: flex; align-items: center;
+  flex-wrap: wrap; gap: 12px;
 }
 
-.prosjekter-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 900px;
-  margin: 0 auto 30px;
+.studie_periode {
+  padding: 7px 16px; color: white;
+  background: var(--bla); font-size: 0.9rem;
+  font-weight: 700; border-radius: 999px;
 }
 
-#prosjekter h2 {
-  font-size: 2rem;
-  margin: 0;
+.studie_status {
+  color: var(--gra_tekst); font-size: 0.9rem;
 }
 
-
-/* ---------------- */
-/* ON/OFF SWITCH    */
-/* ---------------- */
-
-.carousel-toggle-container {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.utdanning_boks h3 {
+  margin: 16px 0 10px; font-size: clamp(1.15rem, 2vw, 1.5rem);
 }
 
-.toggle-switch {
-  position: relative;
-
-  width: 56px;
-  height: 30px;
-
-  padding: 0;
-
-  border: 2px solid #546167;
-  border-radius: 30px;
-
-  background-color: #777;
-
-  cursor: pointer;
-
-  transition: background-color 0.25s ease;
+.studiested {
+  margin: 0.4rem 0; color: var(--gra_tekst);
 }
 
-.toggle-switch.active {
-  background-color: var(--navbar);
+.studiepoeng {
+  margin: 8px 0 0; color: var(--morkebla);
+  font-weight: 700;
 }
 
-.toggle-circle {
-  position: absolute;
-
-  width: 22px;
-  height: 22px;
-
-  top: 2px;
-  left: 3px;
-
-  background-color: white;
-
-  border-radius: 50%;
-
-  transition: transform 0.25s ease;
+.emner_innhold {
+  margin-top: 26px; border-top: 1px solid #b2c1ca;
+  padding-top: 22px;
 }
 
-.toggle-switch.active .toggle-circle {
-  transform: translateX(25px);
+.emner_innhold h4 {
+  margin: 0 0 16px; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--bla);
 }
 
-.toggle-switch:focus-visible {
-  outline: 3px solid #000;
-  outline-offset: 3px;
+.emne_liste {
+  display: flex; flex-wrap: wrap;
+  gap: 10px; list-style: none;
+  margin: 0; padding: 0;
 }
 
-
-/* ---------------- */
-/* CAROUSEL         */
-/* ---------------- */
-
-.carousel-container {
-  display: grid;
-
-  grid-template-columns: auto minmax(0, 850px) auto;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 20px;
-
-  width: 100%;
+.emne_liste li {
+  padding: 7px 15px; background: #f7fafc;
+  color: var(--morkebla); border: 1px solid #b8c6d0;
+  border-radius: 999px; font-size: 0.92rem;
 }
 
-.carousel-window {
-  overflow: hidden;
-
-  width: 100%;
-
-  padding: 10px 0;
+.ikke_emner {
+  font-style: italic; color: var(--gra_tekst);
 }
 
-.carousel-track {
-  display: flex;
+/* Prosjektene, samme bokser som før */
 
-  transition: transform 0.5s ease;
+.prosjekt_boks {
+  display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  overflow: hidden; border: 1px solid var(--kant);
+  border-radius: var(--radius); background: white;
+  box-shadow: var(--skygge); scroll-margin-top: 105px;
 }
 
-.carousel-slide {
-  flex: 0 0 100%;
-
-  display: flex;
-  justify-content: center;
-
-  box-sizing: border-box;
-
-  padding: 10px;
+.prosjekt_bilde {
+  display: grid; place-items: center;
+  min-height: 330px; padding: 2.5rem;
+  background: #d7e2eb;
 }
 
-
-/* ---------------- */
-/* PROJECT CARD     */
-/* ---------------- */
-
-.prosjekt-boks {
-  box-sizing: border-box;
-
-  width: min(600px, 100%);
-
-  background-color: var(--whoami-bg);
-
-  box-shadow: 4px 2px 2px #546167;
-
-  padding: 40px;
-
-  border-radius: 25px;
-}
-
-.prosjekt-boks h3 {
-  font-size: 1.8rem;
-  margin-top: 0;
-}
-
-.prosjekt-bilde {
-  display: block;
-
-  max-width: 300px;
-  width: 100%;
-
-  max-height: 180px;
-
+.prosjekt_bilde img {
+  max-width: 100%; max-height: 270px;
   object-fit: contain;
-
-  margin: 25px auto;
 }
 
+.prosjekt_mangler_bilde {
+  color: var(--bla); font-size: clamp(1.3rem, 4vw, 4rem);
+  font-weight: 750;
+}
 
-/* ---------------- */
-/* ARROWS           */
-/* ---------------- */
+.prosjekt_innhold {
+  min-width: 0; padding: clamp(1.5rem, 4vw, 3rem);
+}
 
-.carousel-arrow {
-  display: flex;
+.prosjekt_type {
+  margin: 0 0 15px; font-weight: 700;
+  color: var(--bla);
+}
 
+.prosjekt_innhold h3 {
+  margin: 0 0 20px; font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.prosjekt_innhold > p:not(.prosjekt_type) { margin: 0 0 16px; }
+
+.ferdighet_liste {
+  list-style: none; display: flex;
+  flex-wrap: wrap; gap: 9px;
+  padding: 0; margin: 18px 0 26px;
+}
+
+.ferdighet_tag {
+  display: inline-flex; align-items: center;
+  min-height: 34px; padding: 7px 13px;
+  border: 1px solid #c3d0dc; border-radius: 8px;
+  color: var(--tekst); background: var(--lys_boks);
+  font-size: 0.92rem; text-decoration: none;
+}
+
+.ferdighet_lenke:hover {
+  background: #c8d9e7; text-decoration: underline;
+}
+
+.prosjekt_knapper {
+  display: flex; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+
+.prosjekt_detaljer {
+  margin-top: 28px; padding-top: 25px;
+  border-top: 1px solid var(--kant);
+}
+
+.prosjekt_detaljer h4 {
+  margin: 22px 0 12px; font-size: 1.08rem;
+}
+
+.prosjekt_detaljer h4:first-child { margin-top: 0; }
+
+.behold_linjeskift {
+  white-space: pre-line; overflow-wrap: anywhere;
+  line-height: 1.8;
+}
+
+.prosjekter_grid {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px; align-items: start;
+}
+
+.prosjekter_grid .prosjekt_boks { grid-template-columns: 1fr; }
+
+.prosjekter_grid .prosjekt_bilde {
+  min-height: 210px; padding: 25px;
+}
+
+.prosjekter_grid .prosjekt_bilde img { max-height: 165px; }
+.prosjekter_grid .prosjekt_innhold { padding: 28px; }
+.prosjekter_grid .prosjekt_innhold h3 { font-size: 1.5rem; }
+
+/* Automatisk bytting av prosjekter */
+
+.karrusell_valg {
+  display: flex; justify-content: flex-end;
+  align-items: center; flex-wrap: wrap;
+  gap: 12px; margin-bottom: 16px;
+}
+
+.auto_bytte {
+  position: relative; width: 62px;
+  height: 34px; flex-shrink: 0;
+  padding: 0; border: 2px solid #657586;
+  border-radius: 999px; background: #adb7c1;
+  cursor: pointer; transition: background-color 0.2s;
+}
+
+.auto_bytte.active { background: var(--bla); }
+
+.auto_bytte_sirkel {
+  display: block; position: absolute;
+  left: 3px; top: 3px;
+  width: 24px; height: 24px;
+  border-radius: 50%; background: white;
+  transition: transform 0.2s;
+}
+
+.auto_bytte.active .auto_bytte_sirkel { transform: translateX(27px); }
+
+.auto_status {
+  min-width: 26px; font-weight: 700;
+  color: var(--morkebla);
+}
+
+.karrusell_kontroller {
+  display: flex; justify-content: center;
+  align-items: center; gap: 24px;
+  padding: 22px; font-weight: 700;
+}
+
+.karrusell_kontroller button {
+  display: grid; place-items: center;
+  width: 46px; height: 46px;
+  border: 1px solid var(--kant); border-radius: 50%;
+  background: white; color: var(--morkebla);
+  font-size: 1.3rem;
+}
+
+.karrusell_kontroller button:hover { background: var(--lys_boks); }
+
+/* Ferdigheter */
+
+.ferdigheter_grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px; align-items: start;
+}
+
+.ferdigheter_kategorier {
+  display: flex; flex-direction: column;
+  gap: 45px;
+}
+
+.ferdighet_kategori h3 {
+  margin: 0 0 18px; color: var(--bla);
+}
+
+.ferdighet_boks {
+  min-width: 0; overflow: hidden;
+  border: 2px solid transparent; border-radius: 22px;
+  background: var(--boks_bg); box-shadow: var(--boks_skygge);
+  scroll-margin-top: 105px;
+}
+
+.ferdighet_boks[open],
+.ferdighet_boks:hover {
+  border-color: var(--bla);
+}
+
+.ferdighet_overskrift {
+  display: flex; flex-direction: column;
+  justify-content: space-between; gap: 30px;
+  min-height: 180px; padding: 28px;
+  list-style: none; cursor: pointer;
+}
+
+.ferdighet_overskrift::-webkit-details-marker { display: none; }
+.ferdighet_overskrift::marker { content: ""; }
+
+.ferdighet_tittel {
+  color: var(--bla); font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.ferdighet_bunn {
+  display: flex; justify-content: space-between;
+  align-items: center; gap: 10px;
+  padding-top: 16px; border-top: 1px solid #b2c1ca;
+  font-weight: 700; color: var(--bla);
+}
+
+.mer_ikon {
+  font-size: 1.5rem; line-height: 1;
+}
+
+.ferdighet_boks[open] .mer_ikon { transform: rotate(45deg); }
+
+.ferdighet_detaljer {
+  padding: 0 28px 28px; border-top: 1px solid #b2c1ca;
+}
+
+.ferdighet_detaljer p {
+  margin: 18px 0; line-height: 1.6;
+}
+
+.ferdighet_detaljer h4 {
+  margin: 22px 0 10px; color: var(--bla);
+}
+
+.ferdighet_detaljer ul {
+  margin: 0; padding-left: 20px;
+}
+
+.ferdighet_detaljer li { margin-bottom: 8px; }
+
+.ferdighet_detaljer a {
+  color: var(--morkebla); text-underline-offset: 3px;
+}
+
+/* Kontakt nederst */
+
+.bunntekst {
+  display: block; background: var(--navbar);
+  color: white; padding: 45px 30px 20px;
+  scroll-margin-top: 85px;
+}
+
+.footer_innhold {
+  max-width: 1150px; margin: auto;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center; gap: 40px;
+  padding-bottom: 35px;
+}
+
+.footer_tekst h2 {
+  margin: 0 0 10px; color: white;
+  font-size: 1.5rem;
+}
+
+.footer_tekst p {
+  margin: 0; color: #d0dce7;
+}
+
+.footer_lenker {
+  display: flex; gap: 15px;
+  flex-wrap: wrap;
+}
+
+.footer_lenker a {
+  display: inline-flex; align-items: center;
+  justify-content: center; min-height: 44px;
+  padding: 10px 20px; background: var(--bla);
+  color: white; border: 1px solid #6986a5;
+  border-radius: 12px; font-weight: 600;
+  text-decoration: none;
+}
+
+.footer_lenker a:hover {
+  background: #42678d; border-color: white;
+}
+
+.footer_bunn {
+  max-width: 1150px; margin: auto;
+  padding-top: 18px; border-top: 1px solid #ffffff33;
+}
+
+.footer_bunn p {
+  margin: 0; color: #becfdd;
+  font-size: 0.9rem;
+}
+
+/* Adminpanelet skal fortsatt ha sin egen styling */
+
+.admin-page {
+  max-width: 1450px; padding: 2rem 1.5rem 5rem;
+  margin: auto;
+}
+
+.admin-header {
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.admin-header-actions {
+  display: flex; gap: 1rem;
   align-items: center;
-  justify-content: center;
-
-  width: 55px;
-  height: 55px;
-
-  border: none;
-  border-radius: 50%;
-
-  background-color: var(--navbar);
-  color: white;
-
-  font-size: 2.5rem;
-  line-height: 1;
-
-  cursor: pointer;
-
-  transition:
-    transform 0.2s ease,
-    background-color 0.2s ease;
 }
 
-.carousel-arrow:hover {
-  transform: scale(1.08);
+.admin-tabs {
+  display: flex; gap: 0.5rem;
+  overflow-x: auto; padding: 2rem 0 1rem;
 }
 
-.carousel-arrow:focus-visible {
-  outline: 3px solid black;
-  outline-offset: 4px;
+.admin-tabs button {
+  padding: 0.8rem 1.1rem; border: 1px solid var(--kant);
+  background: white; color: var(--tekst);
+  border-radius: 10px; white-space: nowrap;
 }
 
-.carousel-arrow:disabled {
-  opacity: 0.5;
-  cursor: default;
+.admin-tabs button.active {
+  background: var(--bla); color: white;
 }
 
-
-/* ---------------- */
-/* DOTS             */
-/* ---------------- */
-
-.carousel-indicators {
-  display: flex;
-
-  justify-content: center;
-
-  gap: 10px;
-
-  margin-top: 15px;
+.admin-layout {
+  display: grid; grid-template-columns: minmax(250px, 0.75fr) minmax(0, 1.5fr);
+  gap: 1.5rem; align-items: start;
 }
 
-.carousel-dot {
-  width: 12px;
-  height: 12px;
-
-  padding: 0;
-
-  border: 2px solid var(--navbar);
-  border-radius: 50%;
-
-  background-color: transparent;
-
-  cursor: pointer;
+.admin-list-header {
+  display: flex; justify-content: space-between;
+  align-items: center; gap: 1rem;
 }
 
-.carousel-dot.active {
-  background-color: var(--navbar);
+.admin-list ul {
+  list-style: none; padding: 0;
 }
 
-.carousel-dot:focus-visible {
-  outline: 3px solid black;
-  outline-offset: 3px;
+.admin-list li + li { margin-top: 0.5rem; }
+
+.admin-item {
+  width: 100%; padding: 0.85rem;
+  text-align: left; background: var(--bakgrunn);
+  border: 1px solid var(--kant); border-radius: 8px;
+  color: var(--tekst);
 }
 
-.prosjekt-bilde{
-  width: 300px;
+.admin-item.selected {
+  border-color: var(--bla); background: #d9e7f2;
+  font-weight: 700;
 }
 
+.admin-editor form {
+  display: grid; gap: 1.2rem;
+}
 
+.form-field {
+  display: grid; gap: 0.5rem;
+}
 
-@media (max-width: 700px){
+.admin-editor label,
+.login-card label {
+  font-weight: 650;
+}
 
-  nav{
-    grid-template-columns: 1fr auto;
+.admin-editor input,
+.admin-editor textarea,
+.admin-editor select,
+.login-card input {
+  width: 100%; padding: 0.8rem;
+  border: 1px solid #8599ab; border-radius: 8px;
+  color: var(--tekst); background: white;
+}
+
+.admin-editor textarea { resize: vertical; }
+
+.admin-skill-selector {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem; border: 1px solid var(--kant);
+  border-radius: 10px; padding: 1rem;
+}
+
+.admin-skill-selector legend {
+  font-weight: 700; padding: 0 0.5rem;
+}
+
+.admin-skill-selector label {
+  display: flex; align-items: center;
+  gap: 0.5rem; font-weight: 400;
+}
+
+.admin-skill-selector input {
+  width: auto; min-width: 18px;
+  min-height: 18px;
+}
+
+.admin-form-actions {
+  display: flex; flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.admin-login {
+  min-height: 100vh; display: grid;
+  place-items: center; padding: 1rem;
+}
+
+.login-card { width: min(100%, 460px); }
+
+.login-card form {
+  display: grid; gap: 0.9rem;
+  margin: 1.5rem 0;
+}
+
+@media (max-width: 900px) {
+  .navigasjon {
+    display: none; position: absolute;
+    top: 76px; left: 0;
+    right: 0; flex-direction: column;
+    align-items: stretch; padding: 1.5rem;
+    background: var(--navbar);
   }
 
-  .burger-menu{
-    display: block;
-    background: transparent;
-    border: none;
-    padding: 0.5rem;
-    cursor: pointer;
+  .navigasjon.open { display: flex; }
+  .mobil_meny { display: block; }
+
+  .hvem_er_jeg {
+    grid-template-columns: 1fr; padding: 40px 24px;
   }
 
-  .menu-icon{
-    display: block;
-    background-image: url("./assets/icons8-menu.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 40px;
-    height: 40px;
+  .profil_bilde {
+    max-width: 300px; margin: auto;
   }
 
-  .menu-items{
-    display: none;
-    grid-column: 1 / -1;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 1rem 0;
+  .prosjekt_boks { grid-template-columns: 1fr; }
+  .prosjekt_bilde { min-height: 260px; }
+  .ferdigheter_grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .admin-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .prosjekter_grid { grid-template-columns: 1fr; }
+
+  .footer_innhold {
+    grid-template-columns: 1fr; gap: 25px;
   }
 
-  .menu-items.menu-open{
-    display: flex;
+  .bunntekst { padding: 35px 20px 20px; }
+}
+
+@media (max-width: 650px) {
+  .innhold_seksjon { padding: 3rem 1rem; }
+  .forside > .innhold_seksjon { padding-block: 2.5rem; }
+
+  .utdanning_forside,
+  .utdanning_side,
+  .ferdigheter_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .utdanning_boks,
+  .ferdighet_overskrift {
+    padding: 23px;
+  }
+
+  .ferdighet_detaljer { padding: 0 23px 23px; }
+  .ferdighet_overskrift { min-height: 150px; }
+  .prosjekter_grid .prosjekt_innhold { padding: 22px; }
+  .admin-skill-selector { grid-template-columns: 1fr; }
+  .admin-page { padding: 1.2rem; }
+  .admin-header-actions { flex-wrap: wrap; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auto_bytte,
+  .auto_bytte_sirkel {
+    transition: none;
   }
 }

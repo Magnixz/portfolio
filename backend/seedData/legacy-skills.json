@@ -1,0 +1,183 @@
+
+[
+  {
+    "Slug": "python",
+    "Name": "Python",
+    "NameEn": "Python",
+    "Category": "Programmering og databehandling",
+    "CategoryEn": "Programming and data processing",
+    "Description": "Programmering, automatisering, bildebehandling og databehandling.",
+    "DescriptionEn": "Programming, automation, image processing and data processing.",
+    "SortOrder": 0
+  },
+  {
+    "Slug": "lidar",
+    "Name": "LiDAR",
+    "NameEn": "LiDAR",
+    "Category": "Programmering og databehandling",
+    "CategoryEn": "Programming and data processing",
+    "Description": "Behandling og analyse av sensordata og tredimensjonale punktskyer.",
+    "DescriptionEn": "Processing and analysis of sensor data and 3D point clouds.",
+    "SortOrder": 1
+  },
+  {
+    "Slug": "ai",
+    "Name": "KI og maskinlæring",
+    "NameEn": "AI and machine learning",
+    "Category": "Programmering og databehandling",
+    "CategoryEn": "Programming and data processing",
+    "Description": "Utvikling, trening og evaluering av maskinlæringsmodeller.",
+    "DescriptionEn": "Development, training and evaluation of machine learning models.",
+    "SortOrder": 2
+  },
+  {
+    "Slug": "yolo",
+    "Name": "YOLO",
+    "NameEn": "YOLO",
+    "Category": "Programmering og databehandling",
+    "CategoryEn": "Programming and data processing",
+    "Description": "Objektdeteksjon, modelltrening og evaluering med Ultralytics YOLO.",
+    "DescriptionEn": "Object detection, model training and evaluation with Ultralytics YOLO.",
+    "SortOrder": 3
+  },
+  {
+    "Slug": "opencv",
+    "Name": "OpenCV",
+    "NameEn": "OpenCV",
+    "Category": "Programmering og databehandling",
+    "CategoryEn": "Programming and data processing",
+    "Description": "Bildebehandling, normalisering og konvertering av sensordata.",
+    "DescriptionEn": "Image processing, normalization and conversion of sensor data.",
+    "SortOrder": 4
+  },
+  {
+    "Slug": "numpy",
+    "Name": "NumPy",
+    "NameEn": "NumPy",
+    "Category": "Programmering og databehandling",
+    "CategoryEn": "Programming and data processing",
+    "Description": "Numeriske beregninger og behandling av datasett med Python.",
+    "DescriptionEn": "Numerical calculations and dataset processing with Python.",
+    "SortOrder": 5
+  },
+  {
+    "Slug": "roboflow",
+    "Name": "Roboflow",
+    "NameEn": "Roboflow",
+    "Category": "Programmering og databehandling",
+    "CategoryEn": "Programming and data processing",
+    "Description": "Annotering, organisering og klargjøring av datasett til maskinlæring.",
+    "DescriptionEn": "Annotation, organization and preparation of machine learning datasets.",
+    "SortOrder": 6
+  },
+  {
+    "Slug": "ouster-sdk",
+    "Name": "Ouster SDK",
+    "NameEn": "Ouster SDK",
+    "Category": "Programmering og databehandling",
+    "CategoryEn": "Programming and data processing",
+    "Description": "Innhenting, konvertering og behandling av LiDAR-data fra Ouster-sensorer.",
+    "DescriptionEn": "Reading, converting and processing LiDAR data from Ouster sensors.",
+    "SortOrder": 7
+  },
+  {
+    "Slug": "mqtt",
+    "Name": "MQTT",
+    "NameEn": "MQTT",
+    "Category": "Programmering og databehandling",
+    "CategoryEn": "Programming and data processing",
+    "Description": "Meldingsbasert kommunikasjon mellom sensorer, programmer og andre systemer.",
+    "DescriptionEn": "Message-based communication between sensors, applications and other systems.",
+    "SortOrder": 8
+  },
+  {
+    "Slug": "html",
+    "Name": "HTML",
+    "NameEn": "HTML",
+    "Category": "Frontend",
+    "CategoryEn": "Frontend",
+    "Description": "Strukturering av nettsider med HTML5 og semantiske elementer.",
+    "DescriptionEn": "Structuring web pages with HTML5 and semantic elements.",
+    "SortOrder": 9
+  },
+  {
+    "Slug": "css",
+    "Name": "CSS",
+    "NameEn": "CSS",
+    "Category": "Frontend",
+    "CategoryEn": "Frontend",
+    "Description": "Styling, layout og responsivt design for ulike skjermstørrelser.",
+    "DescriptionEn": "Styling, layouts and responsive design for different screen sizes.",
+    "SortOrder": 10
+  },
+  {
+    "Slug": "javascript",
+    "Name": "JavaScript",
+    "NameEn": "JavaScript",
+    "Category": "Frontend",
+    "CategoryEn": "Frontend",
+    "Description": "Utvikling av interaktive og dynamiske funksjoner på nettsider.",
+    "DescriptionEn": "Development of interactive and dynamic website functionality.",
+    "SortOrder": 11
+  },
+  {
+    "Slug": "typescript",
+    "Name": "TypeScript",
+    "NameEn": "TypeScript",
+    "Category": "Frontend",
+    "CategoryEn": "Frontend",
+    "Description": "Typesikker utvikling av webapplikasjoner og komponenter.",
+    "DescriptionEn": "Type-safe development of web applications and components.",
+    "SortOrder": 12
+  },
+  {
+    "Slug": "react",
+    "Name": "React",
+    "NameEn": "React",
+    "Category": "Frontend",
+    "CategoryEn": "Frontend",
+    "Description": "Komponentbasert frontendutvikling med React, hooks og state.",
+    "DescriptionEn": "Component-based frontend development using React, hooks and state.",
+    "SortOrder": 13
+  },
+  {
+    "Slug": "dotnet",
+    "Name": ".NET",
+    "NameEn": ".NET",
+    "Category": "Backend og databaser",
+    "CategoryEn": "Backend and databases",
+    "Description": "Backendutvikling med C#, ASP.NET Core, REST API og Entity Framework Core.",
+    "DescriptionEn": "Backend development with C#, ASP.NET Core, REST APIs and Entity Framework Core.",
+    "SortOrder": 14
+  },
+  {
+    "Slug": "postgresql",
+    "Name": "PostgreSQL",
+    "NameEn": "PostgreSQL",
+    "Category": "Backend og databaser",
+    "CategoryEn": "Backend and databases",
+    "Description": "Relasjonsdatabaser, SQL, datamodellering og databasemigrering.",
+    "DescriptionEn": "Relational databases, SQL, data modelling and database migrations.",
+    "SortOrder": 15
+  },
+  {
+    "Slug": "h2",
+    "Name": "H2 Database",
+    "NameEn": "H2 Database",
+    "Category": "Backend og databaser",
+    "CategoryEn": "Backend and databases",
+    "Description": "Relasjonsdatabase brukt til lagring av priser, åpningstider og innhold i et Java-webprosjekt.",
+    "DescriptionEn": "Relational database used for storing prices, opening hours and content in a Java web project.",
+    "SortOrder": 16
+  },
+  {
+    "Slug": "accessibility",
+    "Name": "Universell utforming",
+    "NameEn": "Digital accessibility",
+    "Category": "Design og tilgjengelighet",
+    "CategoryEn": "Design and accessibility",
+    "Description": "Utvikling av tilgjengelige digitale løsninger med semantisk HTML, WCAG og god brukeropplevelse.",
+    "DescriptionEn": "Developing accessible digital solutions using semantic HTML, WCAG and good user experience.",
+    "SortOrder": 17
+  }
+]

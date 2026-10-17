@@ -1,0 +1,9 @@
+bin/
+obj/
+*.user
+*.sqlite
+*.db
+appsettings.Local.json
+*.pfx
+*.pem
+.env

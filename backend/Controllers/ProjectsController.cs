@@ -1,37 +1,52 @@
+
+using Backend.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Backend.Data;
-using Backend.Models;
 
 namespace Backend.Controllers;
 
+// Eldre endepunkt for å hente prosjekter.
+// Den nye nettsiden henter alt fra /api/content.
 [ApiController]
-[Route("api/[controller]")]
-public class ProjectsController : ControllerBase
+[Route("api/projects")]
+public sealed class ProjectsController : ControllerBase
 {
-    private readonly AppDbContext _context;
+    private readonly AppDbContext _db;
 
-    public ProjectsController(AppDbContext context)
-    {
-        _context = context;
+    public ProjectsController(AppDbContext db) {
+        _db = db;
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Project>>> GetProjects()
+    public async Task<IActionResult> Get()
     {
-        return await _context.Project.ToListAsync();
-    }
+        var prosjekter = await _db.Project
+            .AsNoTracking()
+            .OrderBy(p => p.SortOrder)
+            .ThenBy(p => p.Id)
+            .Select(p => new
+            {
+                p.Id,
+                p.Name,
+                p.NameEn,
+                p.ProjectType,
+                p.ProjectTypeEn,
+                p.Description,
+                p.DescriptionEn,
+                p.DetailedDescription,
+                p.DetailedDescriptionEn,
+                p.MyRole,
+                p.MyRoleEn,
+                p.LogoUrl,
+                p.GitHubLink,
+                p.DemoUrl,
+                p.SortOrder,
 
-    [HttpGet("{id}")]
-    public async Task<ActionResult<Project>> GetProject(int id)
-    {
-        var project = await _context.Project.FindAsync(id);
+                SkillIds = p.Skills.Select(s => s.Id).ToList()
+            })
+            .ToListAsync();
 
-        if (project == null)
-        {
-            return NotFound();
-        }
-
-        return project;
+        Response.Headers.CacheControl = "no-cache";
+        return Ok(prosjekter);
     }
 }
